@@ -7,6 +7,7 @@ import java.net.URL;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
@@ -20,44 +21,8 @@ public class Testcases {
     	
 		try
 		{
-			String hubURL= "http://localhost:4444/";
-			ChromeOptions options = new ChromeOptions();
-			oBrowser = new RemoteWebDriver(new URL(hubURL), options);
-			Thread.sleep(5000);
-            /*
-            oBrowser.findElement(By.id("username")).sendKeys("admin");
-            oBrowser.findElement(By.name("pwd")).sendKeys("manager");
-            oBrowser.findElement(By.xpath("//div[text()='Login ']")).click();
+			oBrowser=new ChromeDriver();
             Thread.sleep(5000);
-            oBrowser.findElement(By.id("gettingStartedShortcutsPanelId")).click();
-            Thread.sleep(2000);
-            oBrowser.findElement(By.xpath("//*[@id='topnav']/tbody/tr[1]/td[5]/a/div[2]")).click();
-            Thread.sleep(2000);
-            oBrowser.findElement(By.xpath("//div[text()='Add User']")).click();
-            Thread.sleep(2000);
-            oBrowser.findElement(By.name("firstName")).sendKeys("demo");
-            oBrowser.findElement(By.name("lastName")).sendKeys("User1");
-            oBrowser.findElement(By.name("email")).sendKeys("demo@gmail.com");
-            oBrowser.findElement(By.name("username")).sendKeys("demoUser1");
-            oBrowser.findElement(By.name("password")).sendKeys("Welcome123");
-            oBrowser.findElement(By.name("passwordCopy")).sendKeys("Welcome123");
-            Thread.sleep(2000);
-            oBrowser.findElement(By.xpath("//span[text()='Create User']")).click();
-            Thread.sleep(5000);
-            oBrowser.findElement(By.xpath("//span[text()='User1, demo']")).click();
-            Thread.sleep(2000);
-            oBrowser.findElement(By.id("userDataLightBox_deleteBtn")).click();
-            Thread.sleep(2000);
-            Alert oalert=oBrowser.switchTo().alert();
-            System.out.println(oalert.getText());
-            Thread.sleep(2000);
-            oalert.accept();
-            Thread.sleep(2000);
-            oBrowser.findElement(By.linkText("Logout")).click();
-    		Thread.sleep(2000);
-    		oBrowser.quit();
-    		Thread.sleep(2000);
-    		*/
 		}catch(Exception e)
         {
             e.printStackTrace();
@@ -69,7 +34,7 @@ public class Testcases {
     {
         try
         {
-        	oBrowser.get("https://www.google.com/");
+        	oBrowser.get("http://localhost/login.do");
             Thread.sleep(5000);
         }catch(Exception e)
         {
@@ -82,21 +47,17 @@ public class Testcases {
     {
         try
         {
-//            oBrowser.findElement(By.id("username")).sendKeys("admin");
-//            oBrowser.findElement(By.name("pwd")).sendKeys("manager");
-//            oBrowser.findElement(By.xpath("//div[text()='Login ']")).click();
-//            Thread.sleep(5000);
-        	
-        	oBrowser.findElement(By.xpath("//textarea[@title='Search']")).sendKeys("Testing");
-        	oBrowser.findElement(By.xpath("//textarea[@title='Search']")).submit();
-        	Thread.sleep(5000);
+           oBrowser.findElement(By.id("username")).sendKeys("admin");
+           oBrowser.findElement(By.name("pwd")).sendKeys("manager");
+           oBrowser.findElement(By.xpath("//div[text()='Login ']")).click();
+           Thread.sleep(5000);
         }catch(Exception e)
         {
             e.printStackTrace();
         }
     }
 
-    /*
+
     @Test(priority = 4)
     public void minimizeFlyOutWindow()
     {
@@ -166,7 +127,7 @@ public class Testcases {
             e.printStackTrace();;
         }
     }
-    */
+
     @Test(priority = 8)
     public void closeApp()
     {
@@ -179,5 +140,4 @@ public class Testcases {
             e.printStackTrace();;
         }
     }
-    
 }
